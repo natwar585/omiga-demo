@@ -1,0 +1,258 @@
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap');
+
+:root {
+  --heading-color: #111111d9;
+  --bg-color: #eee;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--bg-color);
+  width: min(90%, 1100px);
+  margin-inline: auto;
+  font-family: 'Open Sans', sans-serif;
+}
+
+header {
+  margin-top: 1rem;
+  background-color: white;
+  border-top-right-radius: 0.5rem;
+  border-top-left-radius: 0.5rem;
+  height: 4rem;
+  
+  display: flex;
+  align-items: center;
+  justify-content: space-between
+}
+
+header > span {
+  flex: 1;
+  text-align: center;
+  font-weight: 400;
+  letter-spacing: 0.6px;
+  color: var(--heading-color);
+}
+
+header .menu-items {
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  margin-left: 0.8rem;
+}
+
+header .menu-items li {
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  border-radius: 50%;
+  margin-right: 0.5rem;
+}
+
+header .menu-items li:last-child {
+  margin-right: 0;
+}
+
+.red-circle {
+  border: 2.2px solid red;
+}
+
+
+.yellow-circle {
+  border: 2.2px solid yellow;
+}
+
+.green-circle {
+  border: 2.2px solid lightgreen;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  margin-top: 2rem;
+}
+
+/* sidebar */
+.left-sidebar, .right-sidebar {
+  height: 100vh;
+  background: white;
+  border-radius: 10px;
+}
+
+.news-feed {
+  margin: 0 2rem;
+}
+
+.card {
+  width: 100%;
+  height: auto;
+  margin-bottom: 1rem;
+  background: white;
+  border-radius: 10px;
+  padding-top: 10px;
+  
+  box-shadow: 5px 10px 11px 5px rgba(156,156,156,0.75);
+  -webkit-box-shadow: 5px 10px 11px 5px rgba(156,156,156,0.75);
+  -moz-box-shadow: 5px 10px 11px 5px rgba(156,156,156,0.75);
+}
+
+.news-feed .card .card-img {
+  width: 100%;
+  min-height: 400px;
+  background-repeat: no-repeat;
+  background-position: center; 
+  object-fit: cover;
+  cursor: pointer;
+  background-size: contain;
+  border: 1px solid #eee;
+}
+
+
+.card .profile {
+  display: flex;
+  justify-content: space-between;
+  margin: 0.8rem 1rem;
+}
+
+.card .profile .username {
+  flex: 1;
+  text-align: left;
+  display: flex;
+  margin-left: 1rem;
+  align-items: flex-start;
+  flex-direction: column;
+  list-style-type: none;
+}
+
+.card .profile .username .name {
+  color: var(--heading-color);
+  font-weight: 600;
+}
+
+.card .profile .username .time {
+  font-weight: 300;
+  font-size: 14px;
+}
+
+.card .profile .profile-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: inline-block;
+  background: var(--bg-color);
+}
+
+.card .card-footer ul{
+  list-style-type: none;
+  display: flex;
+  padding: 0.8rem 0;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.card .card-footer ul li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.overlay {
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background-color: var(--bg-color);
+}
+
+.overlay-1 {
+  display: inline-block;
+  width: 60px;
+  height: 5px;
+  background-color: var(--bg-color);
+  border-radius: 5px;
+  margin-left: 10px;
+}
+
+.left-sidebar ul {
+  list-style-type: none;
+  padding: 0.5rem 1.5rem;
+}
+
+.left-sidebar ul li img{ 
+  width: 25px;
+  height: 25px;
+}
+
+.left-sidebar ul li {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  cursor: pointer;
+  transition: 0.4s ease-in-out;
+}
+
+.left-sidebar ul li.active {
+  background: var(--bg-color);
+  border-radius: 5px;
+}
+
+.left-sidebar ul li:hover {
+  background: var(--bg-color);
+  border-radius: 5px;
+}
+
+.left-sidebar ul li p{ 
+  text-align: left;
+  flex: 1;
+  margin-left: 10px;
+  font-size: 14px;
+}
+
+
+/* Responsive */
+ @media only screen and (max-width: 800px) {
+   .left-sidebar, .right-sidebar {
+     display: none;
+   }
+   
+   main {
+     grid-template-columns: 100%;
+   }
+   
+   .news-feed {
+     margin: 0;
+   }
+   
+   .overlay-1 {
+     width: 3rem;
+     margin-left: 3%;;
+   }
+   
+   .overlay {
+     width: 2rem;
+     height: 2rem;
+   }
+   
+   .card .profile .profile-img {
+     width: 3rem;
+     height: 3rem;
+   }
+}
+
+ul li a{
+    color: black;
+    text-decoration: none;
+}
+
+
+
+
+
+

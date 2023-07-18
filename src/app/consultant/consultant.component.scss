@@ -1,0 +1,358 @@
+.section-divider {
+    height: 4rem;
+    background-color: #dfdfdf;
+    border-style: solid;
+    border-color: #ccc;
+    border-width: 1px 0;
+    box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .15), inset 0 .125em .5em rgba(0, 0, 0, .2);
+  }
+
+  /* team */
+  .title{
+    text-align: center;
+    text-transform: capitalize;
+    color: #726a95;
+    margin: 10px 0;
+    position: relative;
+  }
+  
+  .title::after{
+    content: "";
+    position: absolute;
+    width: 20%; height: 2px;
+    background-image: linear-gradient(to left, transparent 5%, #726a95);
+    bottom: -10px; left: 50%;
+    transform: translate(-50%);
+  }
+  
+  .team-row{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    /* padding: 40px 0; */
+  }
+  
+  .member{
+    flex: 1 1 250px;
+    margin: 20px;
+    text-align: center;
+    padding: 20px 10px;
+    cursor: pointer;
+    max-width: 300px;
+    transition: all 0.3s;
+  }
+  
+  .member:hover{
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    transform: translateY(-20px);
+  }
+  
+  .member img{
+    display: block;
+    width: 150px; height: 150px;
+    object-fit: cover;
+    border:4px solid #726a95;
+    border-radius: 50%;
+    margin: 0 auto;
+  }
+  
+  .member h2{
+    text-transform: uppercase;
+    font-size: 24px;
+    color: #726a95;
+    margin: 15px 0;
+  }
+  
+  .member p{
+    font-size: 15px;
+    color: #838383;
+    line-height: 1.6;
+  }
+  /* endteam */
+  @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@200&display=swap");
+  body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+  }
+  
+  .road-map-main {
+    margin: 50px 0 51px;
+    .road-map-wrapper {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      height: 175px;
+      @media (max-width: 991px) {
+        margin-bottom: 25px;
+        height: auto;
+        display: block;
+      }
+  
+      &::before {
+        content: "";
+        width: 100%;
+        clear: both;
+        display: block;
+      }
+      &::after {
+        content: "";
+        width: 100%;
+        clear: both;
+        display: block;
+      }
+      .road-map-circle {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        border: 25px solid transparent;
+        border-top-color: #7a7bd7;
+        border-right-color: #7a7bd7;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        transform: rotate(45deg);
+        @media (max-width: 992px) {
+          position: unset;
+          border: 25px solid #7a7bd7;
+        }
+  
+        .road-map-circle-text {
+          width: 110px;
+          height: 110px;
+          border-radius: 50%;
+          background-color: #eb0d0de0;
+          font-size: 20px;
+          font-weight: 600;
+          line-height: 26px;
+          text-transform: capitalize;
+          color: #fff;
+          box-shadow: 0px 0px 10px 5px #00000021;
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          margin: auto;
+          transform: rotate(-45deg);
+        }
+      }
+      .road-map-card {
+        width: 35%;
+        // float: right;
+        background: #7a7bd7;
+        padding: 20px 20px;
+        z-index: 1;
+        position: absolute;
+        right: 0;
+        border-radius: 5px;
+        &::before {
+          content: "";
+          width: 25%;
+          height: 20px;
+          background: #7a7bd7;
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          left: -23%;
+          z-index: -1;
+        }
+        @media (max-width: 991px) {
+          width: 100%;
+          margin-top: 30px;
+          position: unset;
+          &::before {
+            content: "";
+            width: 20px;
+            height: 30%;
+            top: 50%;
+            transform: translateX(-50%);
+            left: 50%;
+          }
+        }
+        @media (max-width: 425px) {
+          top: 45%;
+        }
+        .card-head {
+          font-size: 20px;
+          font-weight: 600;
+          text-transform: capitalize;
+          margin: 0 0 15px;
+          color: #fff;
+        }
+        .card-text {
+          color: #fff;
+          margin: 0;
+          display: -webkit-box;
+          -webkit-line-clamp: 5;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+          @media (max-width: 1199px) {
+            -webkit-line-clamp: 4;
+          }
+        }
+      }
+      &:nth-of-type(even) {
+        .road-map-circle {
+          border-bottom-color: #7a7bd7;
+          border-left-color: #7a7bd7;
+          border-top-color: transparent;
+          border-right-color: transparent;
+          @media (max-width: 991px) {
+            border-color: #7a7bd7;
+          }
+        }
+        .road-map-card {
+          // float: left;
+          left: 0;
+          &::before {
+            right: -23%;
+            left: unset;
+            @media (max-width: 991px) {
+              content: "";
+              width: 20px;
+              height: 30%;
+              top: 50%;
+              transform: translateX(-50%);
+              left: 50%;
+            }
+            @media (max-width: 425px) {
+              top: 45%;
+            }
+          }
+        }
+      }
+    }
+  }
+  .Header__shape {
+    animation-duration: 4s;
+    animation-timing-function: cubic-bezier(.18, 1.17, .03, 1.46);
+    animation-fill-mode: backwards;
+    transform-origin: center;
+    transform-box: fill-box; /* Add this line */
+  }
+  
+  
+  
+  .Header {
+    position: relative;
+    z-index: -1000;
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(#c2c2c2 8%, transparent 8%), white;
+    background-position: 0 0, 25px 25px;
+    background-size: 25px 25px;
+  }
+  
+  .Header__svg {
+    position: absolute;
+    width: 100%;
+    top: 60%;
+    transform: translateY(-50%);
+    z-index: -1;
+    will-change: transform;
+  }
+  
+  .Header__title {
+    font-family: Avenir, Futura, 'Open Sans', 'Gill Sans', 'Helvetica Neue', Ariel, sans-serif;
+    font-weight: bold;
+    font-size: 3vw;
+    margin: 0;
+    color: black;
+  
+  }
+  
+  
+  .bigSquare {
+    animation-name: bigSquare;
+  }
+  
+  @keyframes bigSquare {
+    from {
+      transform: translateY(10%) rotate(-80deg) scale(0);
+    }
+    to {
+      transform: translateY(0) rotate(0deg) scale(1);
+    }
+  }
+  
+  .littleSquare {
+    animation-name: littleSquare;
+  }
+  
+  @keyframes littleSquare {
+    from {
+      transform: translate(226%, 183%) rotate(140deg) scale(0);
+    }
+    to {
+      transform: translate(0%, 0%) rotate(0deg) scale(1);
+    }
+  }
+  
+  .triangle {
+    animation-name: triangle;
+  }
+  
+  @keyframes triangle {
+    from {
+      transform: rotate(-140deg) scale(0);
+    }
+    to {
+      transform: rotate(0deg) scale(1);
+    }
+  }
+  
+  .hoop {
+    animation-name: hoop;
+  }
+  
+  @keyframes hoop {
+    from {
+      transform: translate(-160%, -33%) scale(0);
+    }
+    to {
+      transform: translate(0%, 0%) scale(1);
+    }
+  }
+  
+  .bigCircle {
+    animation-name: bigCircle;
+  }
+  
+  @keyframes bigCircle {
+    from {
+      transform: scale(0) translate(60%, 3%);
+    }
+    to {
+      transform: scale(1) translate(0%, 0%);
+    }
+  }
+  
+  .littleCircle {
+    animation-name: littleCircle;
+  }
+  
+  @keyframes littleCircle {
+    from {
+      transform: scale(0);
+    }
+    to {
+      transform: scale(1);
+    }
+  }
+  
+  /* Some lovely SASS fun to stagger the animation */
+  
+  @for $i from 1 to 12 {
+    .Header__shape:nth-child(#{$i}) {
+      animation-delay: $i * 0.16s;
+    }
+  }
+  /* end header */
+  

@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Omiga</title>
+    <base href="/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+      crossorigin="anonymous"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="main.js"></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
+    <app-root></app-root>
+    <link
+      href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+      rel="stylesheet"
+      id="bootstrap-css"
+    />
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.js"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+      crossorigin="anonymous"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+      integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+      integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+      $(".slide-nav").on("click", function (e) {
+        e.preventDefault();
+        // get current slide
+        var current = $(".flex--active").data("slide"),
+          // get button data-slide
+          next = $(this).data("slide");
+
+        $(".slide-nav").removeClass("active");
+        $(this).addClass("active");
+
+        if (current === next) {
+          return false;
+        } else {
+          $(".slider__warpper")
+            .find(".flex__container[data-slide=" + next + "]")
+            .addClass("flex--preStart");
+          $(".flex--active").addClass("animate--end");
+          setTimeout(function () {
+            $(".flex--preStart")
+              .removeClass("animate--start flex--preStart")
+              .addClass("flex--active");
+            $(".animate--end")
+              .addClass("animate--start")
+              .removeClass("animate--end flex--active");
+          }, 800);
+        }
+      });
+    </script>
+    <script>
+      $(document).ready(function () {
+        $(".customer-logos").slick({
+          slidesToShow: 6,
+          slidesToScroll: 1,
+          autoplay: true,
+          autoplaySpeed: 1500,
+          arrows: false,
+          dots: false,
+          pauseOnHover: false,
+          responsive: [
+            {
+              breakpoint: 768,
+              settings: {
+                slidesToShow: 4,
+              },
+            },
+            {
+              breakpoint: 520,
+              settings: {
+                slidesToShow: 3,
+              },
+            },
+          ],
+        });
+      });
+    </script>
+    <script>
+      (function ($) {
+        $(function () {});
+      })(jQuery);
+    </script>
+    <script>
+      function isInViewport(element) {
+        var rect = element.getBoundingClientRect();
+        return (
+          rect.top >= 0 &&
+          rect.left >= 0 &&
+          rect.bottom <=
+            (window.innerHeight || document.documentElement.clientHeight) &&
+          rect.right <=
+            (window.innerWidth || document.documentElement.clientWidth)
+        );
+      }
+
+      function addAnimationOnScroll() {
+        var productsSection = document.querySelector(".products");
+
+        if (isInViewport(productsSection)) {
+          productsSection.classList.add("animate");
+          window.removeEventListener("scroll", addAnimationOnScroll);
+        }
+      }
+
+      window.addEventListener("scroll", addAnimationOnScroll);
+    </script>
+    <script>
+      var currentYear = new Date().getFullYear();
+      var copyright = document.getElementById("copyright");
+      copyright.innerHTML =
+        "&copy; Copyright " +
+        currentYear +
+        " Công ty Công Nghệ và Giải Pháp Omega";
+    </script>
+
+    <script>
+      let i = 2;
+
+      $(document).ready(function () {
+        var radius = 200;
+        var fields = $(".itemDot");
+        var container = $(".dotCircle");
+        var width = container.width();
+        radius = width / 2.5;
+
+        var height = container.height();
+        var angle = 0,
+          step = (2 * Math.PI) / fields.length;
+        fields.each(function () {
+          var x = Math.round(
+            width / 2 + radius * Math.cos(angle) - $(this).width() / 2
+          );
+          var y = Math.round(
+            height / 2 + radius * Math.sin(angle) - $(this).height() / 2
+          );
+          if (window.console) {
+            console.log($(this).text(), x, y);
+          }
+
+          $(this).css({
+            left: x + "px",
+            top: y + "px",
+          });
+          angle += step;
+        });
+
+        $(".itemDot").click(function () {
+          var dataTab = $(this).data("tab");
+          $(".itemDot").removeClass("active");
+          $(this).addClass("active");
+          $(".CirItem").removeClass("active");
+          $(".CirItem" + dataTab).addClass("active");
+          i = dataTab;
+
+          $(".dotCircle").css({
+            transform: "rotate(" + (360 - (i - 1) * 36) + "deg)",
+            transition: "2s",
+          });
+          $(".itemDot").css({
+            transform: "rotate(" + (i - 1) * 36 + "deg)",
+            transition: "1s",
+          });
+        });
+
+        setInterval(function () {
+          var dataTab = $(".itemDot.active").data("tab");
+          if (dataTab > 6 || i > 6) {
+            dataTab = 1;
+            i = 1;
+          }
+          $(".itemDot").removeClass("active");
+          $('[data-tab="' + i + '"]').addClass("active");
+          $(".CirItem").removeClass("active");
+          $(".CirItem" + i).addClass("active");
+          i++;
+
+          $(".dotCircle").css({
+            transform: "rotate(" + (360 - (i - 2) * 36) + "deg)",
+            transition: "2s",
+          });
+          $(".itemDot").css({
+            transform: "rotate(" + (i - 2) * 36 + "deg)",
+            transition: "1s",
+          });
+        }, 5000);
+      });
+    </script>
+    <script>
+      (function ($) {
+        "use strict";
+
+        // Testimonial Carousel
+        if ($(".testimonial-carousel").length) {
+          $(".testimonial-carousel").owlCarousel({
+            animateOut: "slideOutDown",
+            animateIn: "zoomIn",
+            loop: true,
+            margin: 0,
+            nav: true,
+            smartSpeed: 300,
+            autoplay: 7000,
+            navText: [
+              '<span class="arrow-left"></span>',
+              '<span class="arrow-right"></span>',
+            ],
+            responsive: {
+              0: {
+                items: 1,
+              },
+              600: {
+                items: 1,
+              },
+              800: {
+                items: 1,
+              },
+              1024: {
+                items: 1,
+              },
+            },
+          });
+        }
+      })(window.jQuery);
+    </script>
+    <!-- last -->
+    <script></script>
+    <script>
+      //grid/list toggle for thumbnails
+      var $bigButton = jQuery("a.view.big");
+      var $gridButton = jQuery("a.view.grid");
+      var $listButton = jQuery("a.view.list");
+      var $items = jQuery("div.view-mode");
+
+      $listButton.on("click", function () {
+        $gridButton.removeClass("on");
+        $listButton.addClass("on");
+        $items.removeClass("col-4").addClass("col-12");
+      });
+
+      $listButton.on("click", function () {
+        $bigButton.removeClass("on");
+        $listButton.addClass("on");
+        $items.removeClass("col-6").addClass("col-12");
+      });
+
+      $gridButton.on("click", function () {
+        $listButton.removeClass("on");
+        $gridButton.addClass("on");
+        $items.removeClass("col-12").addClass("col-4");
+      });
+
+      $gridButton.on("click", function () {
+        $bigButton.removeClass("on");
+        $gridButton.addClass("on");
+        $items.removeClass("col-6").addClass("col-4");
+      });
+
+      $bigButton.on("click", function () {
+        $listButton.removeClass("on");
+        $gridButton.addClass("on");
+        $items.removeClass("col-12").addClass("col-6");
+      });
+
+      $bigButton.on("click", function () {
+        $gridButton.removeClass("on");
+        $bigButton.addClass("on");
+        $items.removeClass("col-4").addClass("col-6");
+      });
+
+      var selectedBox = null;
+
+      $(document).ready(function () {
+        $(".radio-feed").click(function () {
+          selectedBox = this.id;
+          $(".radio-feed").each(function () {
+            if (this.id == selectedBox) {
+              this.checked = true;
+            } else {
+              this.checked = false;
+            }
+          });
+        });
+
+        $(".radio-filter").click(function () {
+          selectedBox = this.id;
+          $(".radio-filter").each(function () {
+            if (this.id == selectedBox) {
+              this.checked = true;
+            } else {
+              this.checked = false;
+            }
+          });
+        });
+
+        $(".radio-publications").click(function () {
+          selectedBox = this.id;
+          $(".radio-publications").each(function () {
+            if (this.id == selectedBox) {
+              this.checked = true;
+            } else {
+              this.checked = false;
+            }
+          });
+        });
+
+        $(".radio-topics").click(function () {
+          selectedBox = this.id;
+          $(".radio-topics").each(function () {
+            if (this.id == selectedBox) {
+              this.checked = true;
+            } else {
+              this.checked = false;
+            }
+          });
+        });
+
+        $(".radio-categories").click(function () {
+          selectedBox = this.id;
+          $(".radio-categories").each(function () {
+            if (this.id == selectedBox) {
+              this.checked = true;
+            } else {
+              this.checked = false;
+            }
+          });
+        });
+      });
+
+      var checkboxes = document.getElementsByTagName("input");
+
+      // for (var i=0; i<checkboxes.length; i++)  {
+      //   if (checkboxes[i].type == 'checkbox')   {
+      //     checkboxes[i].checked = false;
+      //   }
+      // };
+
+      $(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+      });
+
+      //sidebar offcanvas
+      $(function () {
+        $("[data-toggle=offcanvas]").click(function () {
+          if (
+            $(".sidebar-offcanvas").css("background-color") ==
+            "rgb(255, 255, 255)"
+          ) {
+            $(".list-group-item").attr("tabindex", "-1");
+          } else {
+            $(".list-group-item").attr("tabindex", "");
+          }
+          $(".row-offcanvas").toggleClass("active");
+        });
+      });
+    </script>
+    <!-- product page -->
+    <script>
+      function readMore() {
+        var expandInfo = document.getElementById("more-info-js");
+        var mainHeadings = document.getElementById("main-headings-js");
+
+        mainHeadings.style.transform = "scale(0.7)";
+        expandInfo.style.height = "350px";
+      }
+    </script>
+    <script>
+      function changeSlide(evt, Product_tumbnailName) {
+        var i, x, slide_options;
+        x = document.getElementsByClassName("Product_tumbnail");
+        for (i = 0; i < x.length; i++) {
+          x[i].style.display = "none";
+        }
+        slide_options = document.getElementsByClassName("slide_option");
+        for (i = 0; i < x.length; i++) {
+          slide_options[i].className = slide_options[i].className.replace(
+            " slide_image_color",
+            ""
+          );
+        }
+        document.getElementById(Product_tumbnailName).style.display = "block";
+        evt.currentTarget.className += " slide_image_color";
+      }
+
+      function opentab_type(evt, tab_typeName) {
+        var i, x, tablinks;
+        x = document.getElementsByClassName("tab_type");
+        for (i = 0; i < x.length; i++) {
+          x[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablink");
+        for (i = 0; i < x.length; i++) {
+          tablinks[i].className = tablinks[i].className.replace(
+            "active_button",
+            ""
+          );
+        }
+        document.getElementById(tab_typeName).style.display = "block";
+        evt.currentTarget.className += " active_button";
+      }
+
+      //SCROLL ANIMATE
+      var scroll =
+        window.requestAnimationFrame ||
+        function (callback) {
+          window.setTimeout(callback, 1000 / 60);
+        };
+      var elementsToShow = document.querySelectorAll(".show-on-scroll");
+      function loop() {
+        Array.prototype.forEach.call(elementsToShow, function (element) {
+          if (isElementInViewport(element)) {
+            element.classList.add("is-visible");
+          } else {
+            element.classList.remove("is-visible");
+          }
+        });
+
+        scroll(loop);
+      }
+      loop();
+
+      function isElementInViewport(el) {
+        // special bonus for those using jQuery
+        if (typeof jQuery === "function" && el instanceof jQuery) {
+          el = el[0];
+        }
+        var rect = el.getBoundingClientRect();
+        return (
+          (rect.top <= 0 && rect.bottom >= 0) ||
+          (rect.bottom >=
+            (window.innerHeight || document.documentElement.clientHeight) &&
+            rect.top <=
+              (window.innerHeight || document.documentElement.clientHeight)) ||
+          (rect.top >= 0 &&
+            rect.bottom <=
+              (window.innerHeight || document.documentElement.clientHeight))
+        );
+      }
+
+      //SCROLL ANIMATE
+      var scroll2 =
+        window.requestAnimationFrame ||
+        function (callback2) {
+          window.setTimeout(callback2, 1000 / 60);
+        };
+      var elementsToShow2 = document.querySelectorAll(".show-on-scroll2");
+      function loop2() {
+        Array.prototype.forEach.call(elementsToShow2, function (element) {
+          if (isElementInViewport(element)) {
+            element.classList.add("is-visible2");
+          } else {
+            element.classList.remove("is-visible2");
+          }
+        });
+
+        scroll2(loop2);
+      }
+      loop2();
+
+      function isElementInViewport(el) {
+        // special bonus for those using jQuery
+        if (typeof jQuery === "function" && el instanceof jQuery) {
+          el = el[0];
+        }
+        var rect2 = el.getBoundingClientRect();
+        return (
+          (rect2.top <= 0 && rect2.bottom >= 0) ||
+          (rect2.bottom >=
+            (window.innerHeight || document.documentElement.clientHeight) &&
+            rect2.top <=
+              (window.innerHeight || document.documentElement.clientHeight)) ||
+          (rect2.top >= 0 &&
+            rect2.bottom <=
+              (window.innerHeight || document.documentElement.clientHeight))
+        );
+      }
+    </script>
+    <script>
+      /*!     
+        jquery.picZoomer.js
+        v 1.0
+        David
+        http://www.CodingSerf.com
+*/
+
+      //放大镜控件
+      (function ($) {
+        $.fn.picZoomer = function (options) {
+          var opts = $.extend({}, $.fn.picZoomer.defaults, options),
+            $this = this,
+            $picBD = $('<div class="picZoomer-pic-wp"></div>')
+              .css({
+                width: opts.picWidth + "px",
+                height: opts.picHeight + "px",
+              })
+              .appendTo($this),
+            $pic = $this
+              .children("img")
+              .addClass("picZoomer-pic")
+              .appendTo($picBD),
+            $cursor = $(
+              '<div class="picZoomer-cursor"><i class="f-is picZoomCursor-ico"></i></div>'
+            ).appendTo($picBD),
+            cursorSizeHalf = {
+              w: $cursor.width() / 2,
+              h: $cursor.height() / 2,
+            },
+            $zoomWP = $(
+              '<div class="picZoomer-zoom-wp"><img src="" alt="" class="picZoomer-zoom-pic"></div>'
+            ).appendTo($this),
+            $zoomPic = $zoomWP.find(".picZoomer-zoom-pic"),
+            picBDOffset = { x: $picBD.offset().left, y: $picBD.offset().top };
+
+          opts.zoomWidth = opts.zoomWidth || opts.picWidth;
+          opts.zoomHeight = opts.zoomHeight || opts.picHeight;
+          var zoomWPSizeHalf = {
+            w: opts.zoomWidth / 2,
+            h: opts.zoomHeight / 2,
+          };
+
+          //初始化zoom容器大小
+          $zoomWP.css({
+            width: opts.zoomWidth + "px",
+            height: opts.zoomHeight + "px",
+          });
+          $zoomWP.css(
+            opts.zoomerPosition || { top: 0, left: opts.picWidth + 30 + "px" }
+          );
+          //初始化zoom图片大小
+          $zoomPic.css({
+            width: opts.picWidth * opts.scale + "px",
+            height: opts.picHeight * opts.scale + "px",
+          });
+
+          //初始化事件
+          $picBD
+            .on("mouseenter", function (event) {
+              $cursor.show();
+              $zoomWP.show();
+              $zoomPic.attr("src", $pic.attr("src"));
+            })
+            .on("mouseleave", function (event) {
+              $cursor.hide();
+              $zoomWP.hide();
+            })
+            .on("mousemove", function (event) {
+              var x = event.pageX - picBDOffset.x,
+                y = event.pageY - picBDOffset.y;
+
+              $cursor.css({
+                left: x - cursorSizeHalf.w + "px",
+                top: y - cursorSizeHalf.h + "px",
+              });
+              $zoomPic.css({
+                left: -(x * opts.scale - zoomWPSizeHalf.w) + "px",
+                top: -(y * opts.scale - zoomWPSizeHalf.h) + "px",
+              });
+            });
+          return $this;
+        };
+        $.fn.picZoomer.defaults = {
+          picHeight: 460,
+          scale: 2.5,
+          zoomerPosition: { top: "0", left: "380px" },
+
+          zoomWidth: 400,
+          zoomHeight: 460,
+        };
+      })(jQuery);
+
+      $(document).ready(function () {
+        $(".picZoomer").picZoomer();
+        $(".piclist li").on("click", function (event) {
+          var $pic = $(this).find("img");
+          $(".picZoomer-pic").attr("src", $pic.attr("src"));
+        });
+
+        var owl = $("#recent_post");
+        owl.owlCarousel({
+          margin: 20,
+          dots: false,
+          nav: true,
+          navText: [
+            "<i class='fa fa-chevron-left'></i>",
+            "<i class='fa fa-chevron-right'></i>",
+          ],
+          autoplay: true,
+          autoplayHoverPause: true,
+          responsive: {
+            0: {
+              items: 2,
+            },
+            600: {
+              items: 3,
+            },
+            1000: {
+              items: 5,
+            },
+            1200: {
+              items: 4,
+            },
+          },
+        });
+
+        $(".decrease_").click(function () {
+          decreaseValue(this);
+        });
+        $(".increase_").click(function () {
+          increaseValue(this);
+        });
+        function increaseValue(_this) {
+          var value = parseInt($(_this).siblings("input#number").val(), 10);
+          value = isNaN(value) ? 0 : value;
+          value++;
+          $(_this).siblings("input#number").val(value);
+        }
+
+        function decreaseValue(_this) {
+          var value = parseInt($(_this).siblings("input#number").val(), 10);
+          value = isNaN(value) ? 0 : value;
+          value < 1 ? (value = 1) : "";
+          value--;
+          $(_this).siblings("input#number").val(value);
+        }
+      });
+    </script>
+  </body>
+</html>
